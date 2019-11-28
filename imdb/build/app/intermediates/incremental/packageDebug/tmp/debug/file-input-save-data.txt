@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Wed Nov 27 23:35:22 BRST 2019
+#Wed Nov 27 23:52:12 BRST 2019
 4.path=flutter_assets/AssetManifest.json
 8.set=ASSET
 6.path=lib/armeabi-v7a/libflutter.so
