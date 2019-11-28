@@ -16,7 +16,7 @@ A Flutter application made for IMDb as proof of concept
 
 5. cmd + shift + p, type Flutter: Run Flutter Doctor, this command will help you to check if your flutter application can run on both android and ios platform.
 
-6. Navigate to lib/imdb_key.dart and change the apiKey "<YOUR_IMDB_API_KEY>" to your own api [key](https://developers.themoviedb.org/3/getting-started/introduction)
+6. Navigate to lib/imdb_key.dart and change the apiKey "<IMDB_API_KEY>" to your own api [key](https://developers.themoviedb.org/3/getting-started/introduction)
 7. Run this command inside imdb folder: 
     ```
     flutter packages pub run flutter_launcher_icons:main
