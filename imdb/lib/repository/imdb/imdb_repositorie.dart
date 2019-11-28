@@ -14,29 +14,20 @@ int _page = 1;
 
 class ImdbRepository {
   Future<List<Movie>> getMovieList() async {
-    try {
-      var response =
-          await http.get("$BASE_URL$UPCOMING_URL?api_key=$_apiKey&page=$_page");
-      if (response.statusCode == 200) {
-        _page++;
-        return upcomingFromJson(response.body).movies;
-      } else
-        return null;
-    } catch (e) {
-      throw Exception("Failed to get movies");
-    }
+    var response =
+        await http.get("$BASE_URL$UPCOMING_URL?api_key=$_apiKey&page=$_page");
+    if (response.statusCode == 200) {
+      _page++;
+      return upcomingFromJson(response.body).movies;
+    } else
+      throw Exception(response.reasonPhrase);
   }
 
   Future<List<Genre>> getMoviesGenre() async {
-    try {
-      var response =
-          await http.get("$BASE_URL$GENRES_URL?api_key=$_apiKey");
-      if (response.statusCode == 200)
-        return genresFromJson(response.body).genres;
-      else
-        return null;
-    } catch (e) {
-      throw Exception("Failed to get movies");
-    }
+    var response = await http.get("$BASE_URL$GENRES_URL?api_key=$_apiKey");
+    if (response.statusCode == 200)
+      return genresFromJson(response.body).genres;
+    else
+      throw Exception(response.reasonPhrase);
   }
 }

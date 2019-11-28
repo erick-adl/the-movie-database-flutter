@@ -41,6 +41,8 @@ dependencies:
     Package that helps you implementing BloC Pattern by Dependency Injection in your project.
   flutter_launcher_icons: ^0.7.4
     A package which simplifies the task of updating your Flutter app's launcher icon.
+  cached_network_image: ^1.1.3
+    A flutter library to show images from the internet and keep them in the cache directory.
 ```
 
 A few resources to get you started if this is your first Flutter project:

@@ -46,9 +46,6 @@ class _MainAppBarState extends State<MainAppBar>
             padding: EdgeInsets.all(5),
             child: TextField(
               // onChanged: (a) async {
-              //   String result =
-              //       await showSearch(context: context, delegate: DataSearch());
-              //   if (result != null) bloc.inSearch.add(result);
               // },
               autofocus: false,
               decoration: InputDecoration(

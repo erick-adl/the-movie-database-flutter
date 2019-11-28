@@ -20,10 +20,22 @@ class HomeScreen extends StatelessWidget {
           stream: bloc.movieListControllerOut,
           initialData: [],
           builder: (context, snapshot) {
+            if (snapshot.hasError) {
+              return Center(
+                child: Container(
+                  color: colorGrayscale10,
+                  child: new Text(
+                    snapshot.error.toString().substring(10),
+                    style: TextStyle(fontSize: 20.0, color: colorDarkYellow),
+                  ),
+                  alignment: Alignment(0.0, 0.0),
+                ),
+              );
+            }
             if (snapshot.hasData)
               return ListView.builder(
                 physics: ScrollPhysics(),
-                padding: const EdgeInsets.all(2.0),               
+                padding: const EdgeInsets.all(2.0),
                 itemBuilder: (context, index) {
                   if (index < snapshot.data.length) {
                     return MovieListViewTile(snapshot.data[index]);

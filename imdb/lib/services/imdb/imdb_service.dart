@@ -20,7 +20,7 @@ class ImdbService {
 
       return movies;
     } catch (e) {
-      throw Exception("Failed to get movies");
+      throw Exception("Failed to get movies list: ${e.toString().substring(10)}");
     }
   }
 }

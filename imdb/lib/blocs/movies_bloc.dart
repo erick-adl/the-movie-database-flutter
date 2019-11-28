@@ -10,7 +10,7 @@ class MoviesBloc implements BlocBase {
 
   List<Movie> movies;
 
-  final _moviesController = BehaviorSubject<List<Movie>>();
+  final _moviesController = BehaviorSubject<List<Movie>>(seedValue: null);
 
 //Stream output
   Stream<List<Movie>> get movieListControllerOut => _moviesController.stream;
@@ -25,12 +25,16 @@ class MoviesBloc implements BlocBase {
   }
 
   fetchListMovie() async {
-    if (null == movies) {
-      movies = await imdbService.getMovieListWithGenres();
-    } else {
-      movies += await imdbService.getMovieListWithGenres();
+    try {
+      if (null == movies) {
+        movies = await imdbService.getMovieListWithGenres();
+      } else {
+        movies += await imdbService.getMovieListWithGenres();
+      }
+      movieListControllerUpdate(movies);
+    } catch (e) {
+      _moviesController.sink.addError(e);
     }
-    movieListControllerUpdate(movies);
   }
 
   @override
