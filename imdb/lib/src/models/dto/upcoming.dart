@@ -4,7 +4,7 @@
 
 import 'dart:convert';
 
-import 'package:imdb/models/movie.dart';
+import 'package:imdb/src/models/movie.dart';
 
 Upcoming upcomingFromJson(String str) => Upcoming.fromJson(json.decode(str));
 

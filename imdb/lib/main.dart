@@ -1,8 +1,7 @@
 import 'package:bloc_pattern/bloc_pattern.dart';
 import 'package:flutter/material.dart';
-import 'package:imdb/view/pages/home_screen.dart';
-
-import 'blocs/movies_bloc.dart';
+import 'package:imdb/src/blocs/movies_bloc.dart';
+import 'package:imdb/src/view/pages/home_screen.dart';
 
 void main() {
   runApp(MyApp());

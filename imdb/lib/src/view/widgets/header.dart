@@ -1,7 +1,7 @@
 import 'package:bloc_pattern/bloc_pattern.dart';
 import 'package:flutter/material.dart';
-import 'package:imdb/blocs/movies_bloc.dart';
-import 'package:imdb/global/colors.dart';
+import 'package:imdb/src/blocs/movies_bloc.dart';
+import 'package:imdb/src/global/colors.dart';
 
 class MainAppBar extends StatefulWidget {
   @override

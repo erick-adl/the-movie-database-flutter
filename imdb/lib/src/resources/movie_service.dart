@@ -1,15 +1,17 @@
 import 'dart:async';
 
-import 'package:imdb/models/movie.dart';
-import 'package:imdb/repository/imdb/imdb_repositorie.dart';
+import 'package:imdb/src/models/movie.dart';
+import 'package:imdb/src/resources/movie_repository.dart';
 
-class ImdbService {
-  Future<List<Movie>> getMovieListWithGenres() async {
+
+
+class MovieService {
+  Future<List<Movie>> fetchMovieListWithGenres() async {
     try {
-      ImdbRepository _mdbRepository = new ImdbRepository();
+      MovieRepository _movieRepository = new MovieRepository();
 
-      var generes = await _mdbRepository.getMoviesGenre();
-      var movies = await _mdbRepository.getMovieList();
+      var generes = await _movieRepository.fetchAllGenres();
+      var movies = await _movieRepository.fetchAllMovies();
 
       movies.forEach((f) => {
             f.genreNames = generes

@@ -1,12 +1,12 @@
 import 'package:bloc_pattern/bloc_pattern.dart';
 import 'dart:async';
 
-import 'package:imdb/models/movie.dart';
-import 'package:imdb/services/imdb/imdb_service.dart';
+import 'package:imdb/src/models/movie.dart';
+import 'package:imdb/src/resources/movie_service.dart';
 import 'package:rxdart/rxdart.dart';
 
 class MoviesBloc implements BlocBase {
-  ImdbService imdbService;
+  MovieService movieService;
 
   List<Movie> movies;
 
@@ -20,16 +20,16 @@ class MoviesBloc implements BlocBase {
       _moviesController.sink.add;
 
   MoviesBloc() {
-    imdbService = ImdbService();
+    movieService = MovieService();
     fetchListMovie();
   }
 
   fetchListMovie() async {
     try {
       if (null == movies) {
-        movies = await imdbService.getMovieListWithGenres();
+        movies = await movieService.fetchMovieListWithGenres();
       } else {
-        movies += await imdbService.getMovieListWithGenres();
+        movies += await movieService.fetchMovieListWithGenres();
       }
       movieListControllerUpdate(movies);
     } catch (e) {

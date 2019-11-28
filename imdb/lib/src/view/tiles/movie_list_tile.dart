@@ -1,10 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:imdb/global/colors.dart';
-import 'package:imdb/models/movie.dart';
-import 'package:imdb/view/pages/movie_description_screen.dart';
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:imdb/view/widgets/custom_loader.dart';
+import 'package:imdb/src/global/colors.dart';
+import 'package:imdb/src/models/movie.dart';
+import 'package:imdb/src/view/pages/movie_description_screen.dart';
+import 'package:imdb/src/view/widgets/custom_loader.dart';
 
 class MovieListViewTile extends StatelessWidget {
   MovieListViewTile(this.movieLists);

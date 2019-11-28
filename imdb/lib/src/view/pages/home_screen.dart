@@ -1,9 +1,9 @@
 import 'package:bloc_pattern/bloc_pattern.dart';
 import 'package:flutter/material.dart';
-import 'package:imdb/blocs/movies_bloc.dart';
-import 'package:imdb/global/colors.dart';
-import 'package:imdb/view/tiles/movie_list_tile.dart';
-import 'package:imdb/view/widgets/header.dart';
+import 'package:imdb/src/blocs/movies_bloc.dart';
+import 'package:imdb/src/global/colors.dart';
+import 'package:imdb/src/view/tiles/movie_list_tile.dart';
+import 'package:imdb/src/view/widgets/header.dart';
 
 class HomeScreen extends StatelessWidget {
   @override

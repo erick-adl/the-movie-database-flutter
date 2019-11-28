@@ -4,7 +4,7 @@
 
 import 'dart:convert';
 
-import 'package:imdb/models/genre.dart';
+import 'package:imdb/src/models/genre.dart';
 
 Genres genresFromJson(String str) => Genres.fromJson(json.decode(str));
 

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:imdb/utils/color_parser.dart';
+import 'package:imdb/src/utils/color_parser.dart';
 
 
 Color colorWhite = HexColor("#ffffff");
