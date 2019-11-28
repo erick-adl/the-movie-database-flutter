@@ -13,6 +13,7 @@ dependencies:
   rxdart: ^0.20.0
   bloc_pattern: ^1.3.0
   flutter_launcher_icons: ^0.7.4
+  cached_network_image: ^1.1.3
 
 
 dev_dependencies:

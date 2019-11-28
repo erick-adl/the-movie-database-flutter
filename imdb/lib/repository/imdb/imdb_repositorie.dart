@@ -1,7 +1,6 @@
 import 'dart:async';
-
-import 'package:imdb/dto/genres.dart';
-import 'package:imdb/dto/upcoming.dart';
+import 'package:imdb/models/dto/upcoming.dart';
+import 'package:imdb/models/dto/genres.dart';
 import 'package:imdb/imdb_key.dart';
 import 'package:imdb/models/genre.dart';
 import 'package:imdb/models/movie.dart';

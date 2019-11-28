@@ -9,7 +9,6 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final bloc = BlocProvider.of<MoviesBloc>(context);
-    bloc.inSearch.add("");
 
     return Scaffold(
       appBar: PreferredSize(
@@ -18,7 +17,7 @@ class HomeScreen extends StatelessWidget {
       ),
       backgroundColor: colorGrayscale10,
       body: StreamBuilder(
-          stream: bloc.outMovies,
+          stream: bloc.movieListControllerOut,
           initialData: [],
           builder: (context, snapshot) {
             if (snapshot.hasData)
@@ -29,7 +28,7 @@ class HomeScreen extends StatelessWidget {
                   if (index < snapshot.data.length) {
                     return MovieListViewTile(snapshot.data[index]);
                   } else if (index > 1) {
-                    bloc.inSearch.add(null);
+                    bloc.fetchListMovie();
                     return Container(
                       height: 40,
                       width: 40,

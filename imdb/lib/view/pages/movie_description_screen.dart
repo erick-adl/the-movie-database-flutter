@@ -1,7 +1,10 @@
 import 'dart:ui';
 
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:imdb/global/colors.dart';
 import 'package:imdb/models/movie.dart';
+import 'package:imdb/view/widgets/custom_loader.dart';
 
 class MovieDescriptionScreen extends StatelessWidget {
   final Movie movie;
@@ -20,39 +23,16 @@ class MovieDescriptionScreen extends StatelessWidget {
             slivers: [
               new SliverAppBar(
                 centerTitle: true,
-                title: Text(
-                  movie.title,
-                  style: TextStyle(
-                    fontSize: 30.0,
-                    color: Colors.white,
-                  ),
-                ),
                 flexibleSpace: new FlexibleSpaceBar(
-                  background: new Stack(
-                    children: [
-                      Positioned.fill(
-                        child: Hero(
-                          tag: movie.originalTitle,
-                          child: Container(
-                            decoration: BoxDecoration(
-                                image: DecorationImage(
-                              fit: BoxFit.fill,
-                              image: NetworkImage(
-                                "http://image.tmdb.org/t/p/w500$imageUrl",
-                              ),
-                            )),
-                            child: new BackdropFilter(
-                              filter: new ImageFilter.blur(
-                                  sigmaX: 0.1, sigmaY: 0.1),
-                              child: new Container(
-                                decoration: new BoxDecoration(
-                                    color: Colors.white.withOpacity(0.0)),
-                              ),
-                            ),
-                          ),
-                        ),
+                  background: AspectRatio(
+                    aspectRatio: 16.0 / 9.0,
+                    child: new Container(
+                      child: CachedNetworkImage(
+                        imageUrl: "http://image.tmdb.org/t/p/w500$imageUrl",
+                        placeholder: (context, url) => CustomLoader(),
+                        errorWidget: (context, url, error) => Icon(Icons.error),
                       ),
-                    ],
+                    ),
                   ),
                 ),
                 pinned: false,
@@ -65,12 +45,12 @@ class MovieDescriptionScreen extends StatelessWidget {
                   onPressed: () => Navigator.of(context).pop(),
                 ),
                 expandedHeight: MediaQuery.of(context).size.height / 3.0,
-                backgroundColor: Colors.white,
+                backgroundColor: colorGrayscale10,
               ),
               SliverFillRemaining(
                 child: Container(
-                  padding: EdgeInsets.all(10),
-                  color: Color(0xeFF2a2a2e),
+                  padding: EdgeInsets.all(5),
+                  color: colorGrayscale10,
                   child: Column(
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
@@ -84,7 +64,8 @@ class MovieDescriptionScreen extends StatelessWidget {
                             ),
                             Padding(
                               padding: const EdgeInsets.all(8.0),
-                              child: Text("\nRelease date: ${movie.releaseDate}",
+                              child: Text(
+                                  "\nRelease date: ${movie.releaseDate}",
                                   style: TextStyle(
                                       fontSize: 20.0, color: Colors.white)),
                             ),

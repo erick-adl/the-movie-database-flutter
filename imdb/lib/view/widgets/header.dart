@@ -31,7 +31,15 @@ class _MainAppBarState extends State<MainAppBar>
       actions: <Widget>[
         new Padding(
           padding: EdgeInsets.all(10),
-          child: Image.asset("images/imdb_logo_rgb_dark.png"),
+          child: new Text(
+            "IMDb",
+            style: TextStyle(
+              color: colorDarkYellow,
+              fontWeight: FontWeight.bold,
+              fontSize: 30.0,
+              letterSpacing: 3.0,
+            ),
+          ),
         ),
         new Flexible(
           child: Container(

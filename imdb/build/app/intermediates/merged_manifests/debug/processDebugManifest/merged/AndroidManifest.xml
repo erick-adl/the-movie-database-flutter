@@ -21,7 +21,6 @@
     -->
     <application
         android:name="io.flutter.app.FlutterApplication"
-        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
         android:debuggable="true"
         android:icon="@mipmap/ic_launcher"
         android:label="imdb" >
@@ -48,10 +47,6 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-        <activity
-            android:name="io.github.ponnamkarthik.flutteryoutube.PlayerActivity"
-            android:configChanges="orientation|screenSize|keyboardHidden|navigation" >
         </activity>
     </application>
 

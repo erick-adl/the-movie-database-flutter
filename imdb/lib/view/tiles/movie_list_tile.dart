@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:imdb/global/colors.dart';
 import 'package:imdb/models/movie.dart';
 import 'package:imdb/view/pages/movie_description_screen.dart';
+import 'package:cached_network_image/cached_network_image.dart';
+import 'package:imdb/view/widgets/custom_loader.dart';
 
 class MovieListViewTile extends StatelessWidget {
   MovieListViewTile(this.movieLists);
@@ -14,7 +16,7 @@ class MovieListViewTile extends StatelessWidget {
     return Column(
       children: <Widget>[
         new Padding(
-          padding: const EdgeInsets.only(top: 1.0),
+          padding: const EdgeInsets.only(top: 3.0),
           child: new Row(
             children: <Widget>[_DetailedInfo(movieLists)],
           ),
@@ -43,7 +45,7 @@ class _DetailedInfo extends StatelessWidget {
                   )));
         },
         child: Container(
-          margin: const EdgeInsets.all(2.0),
+          margin: const EdgeInsets.all(5.0),
           child: new Card(
               elevation: 1.0,
               shape: RoundedRectangleBorder(
@@ -78,13 +80,15 @@ class _DetailedInfo extends StatelessWidget {
     return AspectRatio(
       aspectRatio: 16.0 / 9.0,
       child: new ClipRRect(
-          borderRadius: new BorderRadius.only(
-              topLeft: const Radius.circular(10.0),
-              topRight: const Radius.circular(10.0)),
-          child: Image.network(
-            Uri.https("image.tmdb.org", "/t/p/w500$isImageBroken").toString(),
-            fit: BoxFit.cover,
-          )),
+        borderRadius: new BorderRadius.only(
+            topLeft: const Radius.circular(10.0),
+            topRight: const Radius.circular(10.0)),
+        child: CachedNetworkImage(
+          imageUrl: "https://image.tmdb.org/t/p/w500$isImageBroken",
+          placeholder: (context, url) => CustomLoader(),
+          errorWidget: (context, url, error) => Icon(Icons.error),
+        ),
+      ),
     );
   }
 
