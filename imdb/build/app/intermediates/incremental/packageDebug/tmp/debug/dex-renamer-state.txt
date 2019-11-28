@@ -1,4 +1,0 @@
-#Thu Nov 28 00:43:07 BRST 2019
-base.0=D\:\\git\\flutter\\the-movie-database-flutter\\imdb\\build\\app\\intermediates\\transforms\\dexMerger\\debug\\0
-path.0=classes.dex
-renamed.0=classes.dex

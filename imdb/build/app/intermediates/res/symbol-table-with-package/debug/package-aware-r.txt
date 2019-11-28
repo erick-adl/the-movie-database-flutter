@@ -1,5 +1,0 @@
-com.example.imdb
-drawable launch_background
-drawable splash
-mipmap ic_launcher
-style LaunchTheme
